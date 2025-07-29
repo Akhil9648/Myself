@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Akhil Pandey - Software Engineer specializing in React and modern JavaScript. Building delightful web experiences.">
+    <meta property="og:title" content="Akhil Pandey - Software Engineer">
+    <meta property="og:description" content="Building delightful web experiences with React and modern JavaScript">
+    <meta property="og:type" content="website">
+    <title>Akhil Pandey - Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav__container container">
+            <div class="nav__brand">
+                <a href="#home" class="nav__logo">AP</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+                </button>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                    <span class="nav__hamburger"></span>
+                    <span class="nav__hamburger"></span>
+                    <span class="nav__hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span class="hero__greeting">Hi, I'm</span>
+                        <span class="hero__name" id="hero-name">Akhil Pandey</span>
+                    </h1>
+                    <p class="hero__role" id="hero-role">Software Engineer</p>
+                    <p class="hero__tagline" id="hero-tagline">Building delightful web experiences.</p>
+                    <div class="hero__actions">
+                        <a href="#projects" class="btn btn--primary">View Projects</a>
+                        <a href="resume.pdf" download class="btn btn--outline">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <h2 class="section__title">About Me</h2>
+                <div class="about__content">
+                    <div class="about__image" aria-hidden="true">
+                        <!-- Using first project image from JSON as profile photo to comply with strict_instructions -->
+                        <img src="https://img.freepik.com/free-vector/hacker-operating-laptop-cartoon-icon-illustration-technology-icon-concept-isolated-flat-cartoon-style_138676-2387.jpg?w=360" alt="Profile photo of Akhil Pandey" class="about__photo">
+                    </div>
+                    <div class="about__text">
+                        <p class="about__bio" id="about-bio">I am a Software Engineer specializing in React and modern JavaScript, passionate about crafting performant and accessible interfaces.</p>
+                        <div class="about__details">
+                            <div class="about__detail"><span class="about__detail-label">Email:</span><span class="about__detail-value" id="about-email">akhilpandey494@gmail.com</span></div>
+                            <div class="about__detail"><span class="about__detail-label">Location:</span><span class="about__detail-value" id="about-location">Kanpur,India</span></div>
+                            <div class="about__detail"><span class="about__detail-label">Experience:</span><span class="about__detail-value">Fresher</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section">
+            <div class="container">
+                <h2 class="section__title">Skills</h2>
+                <div class="skills__grid" id="skills-grid"></div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section">
+            <div class="container">
+                <h2 class="section__title">Projects</h2>
+                <div class="projects__grid" id="projects-grid"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section__title">Get In Touch</h2>
+                <div class="contact__content">
+                    <div class="contact__form-wrapper">
+                        <form class="contact__form" id="contact-form" action="https://formspree.io/f/your-code" method="POST" novalidate>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" class="form-control" rows="5" required aria-required="true"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="contact__info">
+                        <h3 class="contact__info-title">Connect with me</h3>
+                        <div class="contact__social" id="contact-social"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">© <span id="current-year">2025</span> Akhil Pandey. All rights reserved.</p>
+                <div class="footer__social" id="footer-social"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JSON Data -->
+    <script type="application/json" id="site-data">{"name":"Akhil Pandey","role":"Software Engineer","tagline":"Building delightful web experiences.","bio":"I am a Software Engineer specializing in React and modern JavaScript, passionate about crafting performant and accessible interfaces.","email":"akhilpandey494@gmail.com","location":"Kanpur, India","socialLinks":[{"platform":"GitHub","url":"https://github.com/akhil9648"},{"platform":"LinkedIn","url":"https://linkedin.com/in/akhilpandey9"}],"skills":[{"name":"Python","level":85},{"name":"Numpy/Pandas ","level":85},{"name":"C++","level":80},{"name":"HTML/CSS","level":95},{"name":"JavaScript","level":90},{"name":"Java","level":75}],"projects":[{"title":"Krishi Help","description":"Predicts the Selling price of the Crop grown in the Farm","tech":"React, Regression, Machine Learning","image":"https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg","repo":"https://github.com/johndoe/task-tracker","live":"https://tasktracker.example.com"}]} </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
