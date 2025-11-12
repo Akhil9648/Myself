@@ -1524,3 +1524,57 @@ textarea.form-control {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
+/* === LeetCode Section === */
+.leetcode {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.leetcode__stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.leetcode__card {
+  background: var(--card-bg, rgba(255, 255, 255, 0.08));
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  min-width: 180px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leetcode__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(248, 159, 27, 0.25);
+}
+
+.leetcode__number {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary, #f89f1b);
+}
+
+.leetcode__label {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #94a3b8);
+  margin-top: 0.3rem;
+}
+
+.leetcode__link {
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+/* Adapt colours in light mode */
+body.light-mode .leetcode__card {
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+body.light-mode .leetcode__number {
+  color: #f89f1b;
+}
