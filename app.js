@@ -320,10 +320,37 @@ function setCurrentYear() {
 }
 
 /* --------------------------------------------------
-   LeetCode Stats Fetch
+   Competitive Programming Data Fetch
 --------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', fetchLeetCodeStats);
 
+document.addEventListener("DOMContentLoaded", () => {
+  fetchLeetCodeStats();
+  fetchGFGStats();
+  fetchCodeforcesStats();
+});
+
+// Smooth count-up animation for numbers
+function animateNumber(id, value) {
+  const element = document.getElementById(id);
+  const duration = 1000;
+  const frameRate = 60;
+  const totalFrames = Math.round(duration / (1000 / frameRate));
+  const startValue = 0;
+  let frame = 0;
+
+  const counter = setInterval(() => {
+    frame++;
+    const progress = frame / totalFrames;
+    const current = Math.floor(progress * value);
+    element.textContent = current.toLocaleString();
+    if (frame === totalFrames) {
+      clearInterval(counter);
+      element.textContent = value.toLocaleString();
+    }
+  }, 1000 / frameRate);
+}
+
+/* === LeetCode Stats === */
 async function fetchLeetCodeStats() {
   const username = "akhilpandey494";
   const apiUrl = `https://leetcode-stats-api.herokuapp.com/${username}`;
@@ -331,13 +358,40 @@ async function fetchLeetCodeStats() {
   try {
     const res = await fetch(apiUrl);
     const data = await res.json();
-
-    document.getElementById("lc-solved").textContent = data.totalSolved ?? "—";
-    document.getElementById("lc-rating").textContent = data.contestRating ?? "—";
-    document.getElementById("lc-link").href = `https://leetcode.com/${username}/`;
+    animateNumber("lc-solved", data.totalSolved || 0);
+    animateNumber("lc-rating", data.contestRating || 0);
   } catch (err) {
-    console.error("Error fetching LeetCode data:", err);
-    document.getElementById("lc-solved").textContent = "—";
-    document.getElementById("lc-rating").textContent = "—";
+    console.error("LeetCode API error:", err);
+  }
+}
+
+/* === GeeksforGeeks Stats === */
+async function fetchGFGStats() {
+  const username = "akhilpandey___";
+  const apiUrl = `https://geeks-for-geeks-stats-api.vercel.app/${username}`;
+
+  try {
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    animateNumber("gfg-solved", data.total_problems_solved || 0);
+    animateNumber("gfg-rank", data.institute_rank || 0);
+  } catch (err) {
+    console.error("GFG API error:", err);
+  }
+}
+
+/* === Codeforces Stats === */
+async function fetchCodeforcesStats() {
+  const username = "dev_akhil_18";
+  const apiUrl = `https://codeforces.com/api/user.info?handles=${username}`;
+
+  try {
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    const user = data.result[0];
+    animateNumber("cf-rating", user.rating || 0);
+    animateNumber("cf-max", user.maxRating || 0);
+  } catch (err) {
+    console.error("Codeforces API error:", err);
   }
 }
