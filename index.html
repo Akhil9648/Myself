@@ -146,5 +146,200 @@
     <script type="application/json" id="site-data">{"name":"Akhil Pandey","role":"Software Engineer","tagline":"Building delightful web experiences.","bio":"I am a Software Engineer specializing in React and modern JavaScript, passionate about crafting performant and accessible interfaces.","email":"akhilpandey494@gmail.com","location":"Kanpur, India","socialLinks":[{"platform":"GitHub","url":"https://github.com/akhil9648"},{"platform":"LinkedIn","url":"https://linkedin.com/in/akhilpandey9"}],"skills":[{"name":"Python","level":85},{"name":"Numpy/Pandas ","level":85},{"name":"C++","level":80},{"name":"HTML/CSS","level":95},{"name":"JavaScript","level":90},{"name":"Java","level":75}],"projects":[{"title":"Krishi Help","description":"Predicts the Selling price of the Crop grown in the Farm","tech":"React, Regression, Machine Learning","image":"https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?cs=srgb&dl=pexels-pixabay-259280.jpg&fm=jpg","repo":"https://github.com/Akhil9648/Krishi-Help","live":"https://tinyurl.com/Akhilpandey"}]} </script>
 
     <script src="app.js"></script>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode Section</title>
+  <style>
+    :root {
+      --primary: #f89f1b;
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+
+    section.leetcode {
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    .leetcode h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .leetcode p.subtitle {
+      color: #94a3b8;
+      margin-bottom: 2rem;
+    }
+
+    .leetcode-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .stat-box {
+      background: var(--card-bg);
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .leetcode-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .leetcode-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .leetcode-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 6px 25px rgba(248, 159, 27, 0.2);
+    }
+
+    .leetcode-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .leetcode-card p {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .leetcode-card a {
+      text-decoration: none;
+      color: var(--text);
+      background: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .leetcode-card a:hover {
+      background: #e08812;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="leetcode" id="leetcode">
+    <h2>LeetCode Progress</h2>
+    <p class="subtitle">Showcasing my problem-solving and algorithmic skills</p>
+
+    <div class="leetcode-stats">
+      <div class="stat-box">
+        <div class="stat-number" id="total-solved">0</div>
+        <div>Problems Solved</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="easy-solved">0</div>
+        <div>Easy</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="medium-solved">0</div>
+        <div>Medium</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="hard-solved">0</div>
+        <div>Hard</div>
+      </div>
+    </div>
+
+    <div class="leetcode-grid" id="leetcode-grid">
+      <!-- Cards will be loaded dynamically -->
+    </div>
+  </section>
+
+  <script>
+    // Example dataset (replace with your real progress)
+    const leetcodeData = [
+      {
+        title: "Two Sum",
+        difficulty: "Easy",
+        link: "https://leetcode.com/problems/two-sum/",
+        description: "Find two numbers that add up to a target value."
+      },
+      {
+        title: "Longest Substring Without Repeating Characters",
+        difficulty: "Medium",
+        link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+        description: "Use sliding window technique to find substring length."
+      },
+      {
+        title: "Merge K Sorted Lists",
+        difficulty: "Hard",
+        link: "https://leetcode.com/problems/merge-k-sorted-lists/",
+        description: "Combine multiple sorted lists efficiently using heap."
+      }
+    ];
+
+    // Count statistics
+    const easyCount = leetcodeData.filter(p => p.difficulty === "Easy").length;
+    const mediumCount = leetcodeData.filter(p => p.difficulty === "Medium").length;
+    const hardCount = leetcodeData.filter(p => p.difficulty === "Hard").length;
+    const totalCount = leetcodeData.length;
+
+    document.getElementById("easy-solved").textContent = easyCount;
+    document.getElementById("medium-solved").textContent = mediumCount;
+    document.getElementById("hard-solved").textContent = hardCount;
+    document.getElementById("total-solved").textContent = totalCount;
+
+    // Load cards dynamically
+    const grid = document.getElementById("leetcode-grid");
+    leetcodeData.forEach(problem => {
+      const card = document.createElement("div");
+      card.classList.add("leetcode-card");
+      card.innerHTML = `
+        <h3>${problem.title}</h3>
+        <p><strong>Difficulty:</strong> ${problem.difficulty}</p>
+        <p>${problem.description}</p>
+        <a href="${problem.link}" target="_blank">View Problem</a>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
+
 </body>
 </html>
