@@ -368,7 +368,7 @@ async function fetchLeetCodeStats() {
 /* === GeeksforGeeks Stats === */
 async function fetchGFGStats() {
   const username = "akhilpandey___";
-  const apiUrl = `https://geeks-for-geeks-stats-api.vercel.app/${username}`;
+  const apiUrl = `https://www.geeksforgeeks.org/user/${username}/`;
 
   try {
     const res = await fetch(apiUrl);
