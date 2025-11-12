@@ -318,3 +318,26 @@ function getSocialIcon(platform) {
 function setCurrentYear() {
   if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
 }
+
+/* --------------------------------------------------
+   LeetCode Stats Fetch
+--------------------------------------------------*/
+document.addEventListener('DOMContentLoaded', fetchLeetCodeStats);
+
+async function fetchLeetCodeStats() {
+  const username = "akhilpandey494";
+  const apiUrl = `https://leetcode-stats-api.herokuapp.com/${username}`;
+
+  try {
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+
+    document.getElementById("lc-solved").textContent = data.totalSolved ?? "—";
+    document.getElementById("lc-rating").textContent = data.contestRating ?? "—";
+    document.getElementById("lc-link").href = `https://leetcode.com/${username}/`;
+  } catch (err) {
+    console.error("Error fetching LeetCode data:", err);
+    document.getElementById("lc-solved").textContent = "—";
+    document.getElementById("lc-rating").textContent = "—";
+  }
+}
